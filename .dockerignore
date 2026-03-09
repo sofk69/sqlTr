@@ -1,0 +1,36 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Build
+bin/
+dist/
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+
+# Tests
+test/
+tests/
+*.test
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# README
+README.md
+README.ru.md
+
+# Environment
+.env
+.env.example
+
+# Go mod cache
+go.sum
