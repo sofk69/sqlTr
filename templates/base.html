@@ -1,0 +1,46 @@
+<!-- templates/base.html -->
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} - Управление тратами</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">Управление тратами</a>
+            <ul class="nav-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/create-user">Создать пользователя</a></li>
+                <li><a href="/add-payment">Добавить платеж</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        {{ if .Success }}
+        <div class="alert alert-success">
+            {{ .Success }}
+        </div>
+        {{ end }}
+        
+        {{ if .Error }}
+        <div class="alert alert-error">
+            {{ .Error }}
+        </div>
+        {{ end }}
+        
+        {{ template "content" . }}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Управление тратами. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
+{{ end }}

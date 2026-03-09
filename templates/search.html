@@ -1,0 +1,42 @@
+{{ define "content" }}
+<h1>Результаты поиска для "{{ .SearchQuery }}"</h1>
+
+{{ if .Found }}
+<div class="user-details">
+    <h2>{{ .User.FirstName }} {{ .User.LastName }}</h2>
+    <table class="user-info">
+        <tr>
+            <th>ID:</th>
+            <td>{{ .User.ID }}</td>
+        </tr>
+        <tr>
+            <th>Возраст:</th>
+            <td>{{ .User.Age }}</td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td>{{ .User.Email }}</td>
+        </tr>
+        <tr>
+            <th>Имя:</th>
+            <td>{{ .User.FirstName }}</td>
+        </tr>
+        <tr>
+            <th>Фамилия:</th>
+            <td>{{ .User.LastName }}</td>
+        </tr>
+    </table>
+    
+    <div class="actions">
+        <a href="/add-payment?user_id={{ .User.ID }}" class="btn btn-primary">Добавить платеж для этого пользователя</a>
+        <a href="/" class="btn btn-secondary">Назад к списку</a>
+    </div>
+</div>
+{{ else }}
+<div class="not-found">
+    <p>Пользователь с именем "{{ .SearchQuery }}" не найден.</p>
+    <a href="/create-user" class="btn btn-primary">Создать нового пользователя</a>
+    <a href="/" class="btn btn-secondary">Вернуться на главную</a>
+</div>
+{{ end }}
+{{ end }}

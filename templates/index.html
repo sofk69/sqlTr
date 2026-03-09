@@ -1,0 +1,24 @@
+{{ define "content" }}
+<h1>Последние пользователи</h1>
+
+<div class="search-box">
+    <form action="/search" method="GET">
+        <input type="text" name="first_name" placeholder="Поиск по имени..." required>
+        <button type="submit">Найти</button>
+    </form>
+</div>
+
+{{ if .Users }}
+<div class="users-list">
+    {{ range .Users }}
+    <div class="user-card">
+        <h3>{{ .FirstName }} {{ .LastName }}</h3>
+        <p>ID: {{ .ID }} | Email: {{ .Email }} | Возраст: {{ .Age }}</p>
+        <a href="/add-payment?user_id={{ .ID }}" class="btn btn-primary">Добавить платеж</a>
+    </div>
+    {{ end }}
+</div>
+{{ else }}
+<p>Нет пользователей в базе данных.</p>
+{{ end }}
+{{ end }}
